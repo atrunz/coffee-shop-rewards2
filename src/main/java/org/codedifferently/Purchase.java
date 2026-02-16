@@ -4,11 +4,13 @@ public class Purchase {
     private String itemName;
     private double price;
     private boolean isDrink;
+    private int pointCost;
 
     public Purchase(String itemName, double price, boolean isDrink){
         this.itemName = itemName;
         this.price = price;
         this.isDrink = isDrink;
+        this.pointCost = (int) (price/10 * 3.2);
     }
 
     public boolean isDrink() {
@@ -34,4 +36,12 @@ public class Purchase {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    public int getPointCost() {
+        return pointCost;
+    }
+
+     public void setPointCost(int cost){
+        this.pointCost = cost;
+     }
 }
