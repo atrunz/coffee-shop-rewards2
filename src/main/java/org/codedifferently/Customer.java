@@ -52,6 +52,8 @@ public class Customer {
         this.myCart.add(item);
     }
 
+    public void clearCart(){this.myCart.clear();}
+
     public List<CoffeeItem> getMyCart() {
         return myCart;
     }
@@ -69,7 +71,8 @@ public class Customer {
     public double getMyPoints(List<CoffeeItem> cart){
         double totalCost = getCost(cart);
         double myPoints = totalCost/10;
-        this.points = (int) myPoints;
+        this.points = this.points + (int) myPoints;
+        this.myCart.clear();
         return myPoints;
     }
 

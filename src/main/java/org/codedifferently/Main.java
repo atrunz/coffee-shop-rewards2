@@ -15,6 +15,7 @@ public class Main {
         Customer cust3 = new Customer("Manny", "911-911-9111", 0);
 
 
+
         //create some menu items
         CoffeeItem item1 = new CoffeeItem("Latte", 10, true);
         CoffeeItem item2 = new CoffeeItem("Cold Brew", 10, true);
@@ -61,12 +62,12 @@ public class Main {
 
 
             System.out.println("We are currently offering:");
-            System.out.println("1)." + item1.getItemName() + " for " + item1.getPrice());
-            System.out.println("2)." + item2.getItemName() + " for " + item2.getPrice());
-            System.out.println("3)." + item3.getItemName() + " for " + item3.getPrice());
-            System.out.println("4)." + item4.getItemName() + " for " + item4.getPrice());
-            System.out.println("5)." + item5.getItemName() + " for " + item5.getPrice());
-            System.out.println("6)." + item6.getItemName() + " for " + item6.getPrice());
+            System.out.println("1)." + item1.getItemName() + " for $" + item1.getPrice());
+            System.out.println("2)." + item2.getItemName() + " for $" + item2.getPrice());
+            System.out.println("3)." + item3.getItemName() + " for $" + item3.getPrice());
+            System.out.println("4)." + item4.getItemName() + " for $" + item4.getPrice());
+            System.out.println("5)." + item5.getItemName() + " for $" + item5.getPrice());
+            System.out.println("6)." + item6.getItemName() + " for $" + item6.getPrice());
 
             System.out.println("If you are ready to checkout, please enter 7");
 
@@ -320,16 +321,14 @@ public class Main {
                     switch (custIndex){
                         case 1:
                             Checkout.checkout(cust1, scan, item1, item2, item3, item4, item5, item6);
-                            cust1.setPoints(pointsRem);
 
-                            isRunning = BuyAgain.buyagain();
+                            isRunning = BuyAgain.buyagain(cust4, scan, item1, item2, item3, item4, item5, item6);
 
                             break;
                         case 2:
                             Checkout.checkout(cust2, scan, item1, item2, item3, item4, item5, item6);
-                            cust2.setPoints(pointsRem);
 
-                            isRunning = BuyAgain.buyagain();
+                            isRunning = BuyAgain.buyagain(cust4, scan, item1, item2, item3, item4, item5, item6);
 
                             //customer is bobby
                             break;
@@ -337,7 +336,7 @@ public class Main {
                             Checkout.checkout(cust3, scan, item1, item2, item3, item4, item5, item6);
                             //cust3.setPoints(pointsRem);
 
-                            isRunning = BuyAgain.buyagain();
+                            isRunning = BuyAgain.buyagain(cust4, scan, item1, item2, item3, item4, item5, item6);
 
                             //customer is manny
                             break;
@@ -346,7 +345,7 @@ public class Main {
 
                             Checkout.checkout(cust4, scan, item1, item2, item3, item4, item5, item6);
                             //cust4.setPoints(pointsRem);
-                            isRunning = BuyAgain.buyagain();
+                            isRunning = BuyAgain.buyagain(cust4, scan, item1, item2, item3, item4, item5, item6);
 
 
                             break;

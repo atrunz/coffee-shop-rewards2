@@ -27,12 +27,12 @@ public class Checkout {
             do{
                 System.out.println("You currently have: " + cust1.getPoints() + " points");
                 System.out.println("What would you like to spend points on?");
-                System.out.println("1). " + item1.getItemName() + " for " + item1.getPointCost());
-                System.out.println("2). " + item2.getItemName() + " for " + item2.getPointCost());
-                System.out.println("3). " + item3.getItemName() + " for " + item3.getPointCost());
-                System.out.println("4). " + item4.getItemName() + " for " + item4.getPointCost());
-                System.out.println("5). " + item5.getItemName() + " for " + item5.getPointCost());
-                System.out.println("6). " + item6.getItemName() + " for " + item6.getPointCost());
+                System.out.println("1). " + item1.getItemName() + " for " + item1.getPointCost() + " points");
+                System.out.println("2). " + item2.getItemName() + " for " + item2.getPointCost() + " points");
+                System.out.println("3). " + item3.getItemName() + " for " + item3.getPointCost() + " points");
+                System.out.println("4). " + item4.getItemName() + " for " + item4.getPointCost() + " points");
+                System.out.println("5). " + item5.getItemName() + " for " + item5.getPointCost() + " points");
+                System.out.println("6). " + item6.getItemName() + " for " + item6.getPointCost() + " points");
                 System.out.println("7). I'm done spending points.");
                 String selection = scan.next();
 
@@ -125,7 +125,7 @@ public class Checkout {
             //print final output
             cust1.setTier(cust1.getPoints());
 
-            System.out.println("Customer name: " + cust1.getName() + "Customer tier: " + cust1.getTier() + "Customer points: " + cust1.getPoints());
+            System.out.println("Customer name: " + cust1.getName() + " Customer tier: " + cust1.getTier() + " Customer points: " + cust1.getPoints());
 
         }
 
