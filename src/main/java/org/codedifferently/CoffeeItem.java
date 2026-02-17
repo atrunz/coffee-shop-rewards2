@@ -1,12 +1,12 @@
 package org.codedifferently;
 
-public class Purchase {
+public class CoffeeItem {
     private String itemName;
     private double price;
     private boolean isDrink;
     private int pointCost;
 
-    public Purchase(String itemName, double price, boolean isDrink){
+    public CoffeeItem(String itemName, double price, boolean isDrink){
         this.itemName = itemName;
         this.price = price;
         this.isDrink = isDrink;

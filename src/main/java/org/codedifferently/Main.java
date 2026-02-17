@@ -2,6 +2,8 @@ package org.codedifferently;
 
 import java.util.Scanner;
 
+//points are being tracked incorrectly, when we go back to buy more shit we don't lose the points we spent
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -14,12 +16,15 @@ public class Main {
 
 
         //create some menu items
-        Purchase item1 = new Purchase("Latte", 10, true);
-        Purchase item2 = new Purchase("Cold Brew", 10, true);
-        Purchase item3 = new Purchase("Hot Chocolate", 10, true);
-        Purchase item4 = new Purchase("Cappucino", 10, true);
-        Purchase item5 = new Purchase("Mocha", 10, true);
-        Purchase item6 = new Purchase("Egg Roll", 10, false);
+        CoffeeItem item1 = new CoffeeItem("Latte", 10, true);
+        CoffeeItem item2 = new CoffeeItem("Cold Brew", 10, true);
+        CoffeeItem item3 = new CoffeeItem("Hot Chocolate", 10, true);
+        CoffeeItem item4 = new CoffeeItem("Cappucino", 10, true);
+        CoffeeItem item5 = new CoffeeItem("Mocha", 10, true);
+        CoffeeItem item6 = new CoffeeItem("Egg Roll", 10, false);
+
+        //points remaining variable
+        int pointsRem = 0;
 
         //create scanner
 
@@ -56,12 +61,12 @@ public class Main {
 
 
             System.out.println("We are currently offering:");
-            System.out.println(item1.getItemName() + " for " + item1.getPrice());
-            System.out.println(item2.getItemName() + " for " + item2.getPrice());
-            System.out.println(item3.getItemName() + " for " + item3.getPrice());
-            System.out.println(item4.getItemName() + " for " + item4.getPrice());
-            System.out.println(item5.getItemName() + " for " + item5.getPrice());
-            System.out.println(item6.getItemName() + " for " + item6.getPrice());
+            System.out.println("1)." + item1.getItemName() + " for " + item1.getPrice());
+            System.out.println("2)." + item2.getItemName() + " for " + item2.getPrice());
+            System.out.println("3)." + item3.getItemName() + " for " + item3.getPrice());
+            System.out.println("4)." + item4.getItemName() + " for " + item4.getPrice());
+            System.out.println("5)." + item5.getItemName() + " for " + item5.getPrice());
+            System.out.println("6)." + item6.getItemName() + " for " + item6.getPrice());
 
             System.out.println("If you are ready to checkout, please enter 7");
 
@@ -70,25 +75,36 @@ public class Main {
             String userInput = scan.next();
             switch (userInput){
                 case "1":
-                    //purchase Latte
+                    //CoffeeItem Latte
                     switch (custIndex){
                         case 1:
                             //customer is alex
                             cust1.addToCart(item1);
+                            System.out.println("You added a Latte to your cart");
+                            System.out.println("Would you like to add anything else? (7 to checkout)");
+
                             break;
                         case 2:
                             cust2.addToCart(item1);
+                            System.out.println("You added a Latte to your cart");
+                            System.out.println("Would you like to add anything else? (7 to checkout)");
 
                             //customer is bobby
                             break;
                         case 3:
                             cust3.addToCart(item1);
+                            System.out.println("You added a Latte to your cart");
+                            System.out.println("Would you like to add anything else? (7 to checkout)");
 
                             //customer is manny
                             break;
                         case 4:
                             //customer is new
                             cust4.addToCart(item1);
+                            System.out.println("You added a Latte to your cart");
+                            System.out.println("Would you like to add anything else? (7 to checkout)");
+
+
 
                             break;
                     }
@@ -96,125 +112,204 @@ public class Main {
                     break;
                 case "2":
 
-                    //purchase Cold Brew
+                    //CoffeeItem Cold Brew
                     switch (custIndex){
                         case 1:
                             //customer is alex
                             cust1.addToCart(item2);
+                            System.out.println("You added a Cold Brew to your cart");
+                            System.out.println("Would you like to add anything else? (7 to checkout)");
+
                             break;
                         case 2:
                             cust2.addToCart(item2);
+                            System.out.println("You added a Cold Brew to your cart");
+                            System.out.println("Would you like to add anything else? (7 to checkout)");
+
+
 
                             //customer is bobby
                             break;
                         case 3:
                             cust3.addToCart(item2);
+                            System.out.println("You added a Cold Brew to your cart");
+                            System.out.println("Would you like to add anything else? (7 to checkout)");
+
+
 
                             //customer is manny
                             break;
                         case 4:
                             //customer is new
                             cust4.addToCart(item2);
+                            System.out.println("You added a Cold Brew to your cart");
+                            System.out.println("Would you like to add anything else? (7 to checkout)");
+
+
 
                             break;
                     }
 
                     break;
                 case "3":
-                    //purchase Hot Chocolate
+                    //CoffeeItem Hot Chocolate
                     switch (custIndex){
                         case 1:
                             //customer is alex
                             cust1.addToCart(item3);
+                            System.out.println("You added a Hot Chocolate to your cart");
+                            System.out.println("Would you like to add anything else? (7 to checkout)");
+
+
                             break;
                         case 2:
                             cust2.addToCart(item3);
+                            System.out.println("You added a Hot Chocolate to your cart");
+                            System.out.println("Would you like to add anything else? (7 to checkout)");
+
+
 
                             //customer is bobby
                             break;
                         case 3:
                             cust3.addToCart(item3);
+                            System.out.println("You added a Hot Chocolate to your cart");
+                            System.out.println("Would you like to add anything else? (7 to checkout)");
+
+
 
                             //customer is manny
                             break;
                         case 4:
                             //customer is new
                             cust4.addToCart(item3);
+                            System.out.println("You added a Hot Chocolate to your cart");
+                            System.out.println("Would you like to add anything else? (7 to checkout)");
+
+
 
                             break;
                     }
 
                     break;
                 case "4":
-                    //purchase Cappucino
+                    //CoffeeItem Cappucino
                     switch (custIndex){
                         case 1:
                             //customer is alex
                             cust1.addToCart(item4);
+                            System.out.println("You added a Cappucino to your cart");
+                            System.out.println("Would you like to add anything else? (7 to checkout)");
+
+
                             break;
                         case 2:
                             cust2.addToCart(item4);
+                            System.out.println("You added a Cappucino to your cart");
+                            System.out.println("Would you like to add anything else? (7 to checkout)");
+
+
 
                             //customer is bobby
                             break;
                         case 3:
                             cust3.addToCart(item4);
+                            System.out.println("You added a Cappucino to your cart");
+                            System.out.println("Would you like to add anything else? (7 to checkout)");
+
+
 
                             //customer is manny
                             break;
                         case 4:
                             //customer is new
                             cust4.addToCart(item4);
+                            System.out.println("You added a Cappucino to your cart");
+                            System.out.println("Would you like to add anything else? (7 to checkout)");
+
+
 
                             break;
                     }
 
                     break;
                 case "5":
-                    //purchase Mocha
+                    //CoffeeItem Mocha
                     switch (custIndex){
                         case 1:
                             //customer is alex
                             cust1.addToCart(item5);
+                            System.out.println("You added a Mocha to your cart");
+                            System.out.println("Would you like to add anything else? (7 to checkout)");
+
+
                             break;
                         case 2:
                             cust2.addToCart(item5);
+                            System.out.println("You added a Mocha to your cart");
+                            System.out.println("Would you like to add anything else? (7 to checkout)");
+
+
 
                             //customer is bobby
                             break;
                         case 3:
                             cust3.addToCart(item5);
+                            System.out.println("You added a Mocha to your cart");
+                            System.out.println("Would you like to add anything else? (7 to checkout)");
+
+
 
                             //customer is manny
                             break;
                         case 4:
                             //customer is new
                             cust4.addToCart(item5);
+                            System.out.println("You added a Mocha to your cart");
+                            System.out.println("Would you like to add anything else? (7 to checkout)");
+
+
 
                             break;
                     }
 
                     break;
                 case "6":
-                    //purchase Egg Roll
+                    //CoffeeItem Egg Roll
                     switch (custIndex){
                         case 1:
                             //customer is alex
                             cust1.addToCart(item6);
+                            System.out.println("You added an Egg Roll to your cart");
+                            System.out.println("Would you like to add anything else? (7 to checkout)");
+
+
                             break;
                         case 2:
                             cust2.addToCart(item6);
+                            System.out.println("You added an Egg Roll to your cart");
+                            System.out.println("Would you like to add anything else? (7 to checkout)");
+
+
 
                             //customer is bobby
                             break;
                         case 3:
                             cust3.addToCart(item6);
+                            System.out.println("You added an Egg Roll to your cart");
+                            System.out.println("Would you like to add anything else? (7 to checkout)");
+
+
 
                             //customer is manny
                             break;
                         case 4:
                             //customer is new
                             cust4.addToCart(item6);
+                            System.out.println("You added an Egg Roll to your cart");
+                            System.out.println("Would you like to add anything else? (7 to checkout)");
+
+
 
                             break;
                     }
@@ -224,25 +319,34 @@ public class Main {
                     //checkout
                     switch (custIndex){
                         case 1:
-                            isRunning = Checkout.checkout(cust1, scan, item1, item2, item3, item4, item5, item6);
+                            Checkout.checkout(cust1, scan, item1, item2, item3, item4, item5, item6);
+                            cust1.setPoints(pointsRem);
 
+                            isRunning = BuyAgain.buyagain();
 
                             break;
                         case 2:
-                            isRunning = Checkout.checkout(cust2, scan, item1, item2, item3, item4, item5, item6);
+                            Checkout.checkout(cust2, scan, item1, item2, item3, item4, item5, item6);
+                            cust2.setPoints(pointsRem);
 
+                            isRunning = BuyAgain.buyagain();
 
                             //customer is bobby
                             break;
                         case 3:
-                            isRunning = Checkout.checkout(cust3, scan, item1, item2, item3, item4, item5, item6);
+                            Checkout.checkout(cust3, scan, item1, item2, item3, item4, item5, item6);
+                            //cust3.setPoints(pointsRem);
 
+                            isRunning = BuyAgain.buyagain();
 
                             //customer is manny
                             break;
                         case 4:
                             //customer is new
-                            isRunning = Checkout.checkout(cust4, scan, item1, item2, item3, item4, item5, item6);
+
+                            Checkout.checkout(cust4, scan, item1, item2, item3, item4, item5, item6);
+                            //cust4.setPoints(pointsRem);
+                            isRunning = BuyAgain.buyagain();
 
 
                             break;

@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Checkout {
 
-    public static boolean checkout(Customer cust1, Scanner scan, Purchase item1, Purchase item2, Purchase item3, Purchase item4, Purchase item5, Purchase item6){
+    public static void checkout(Customer cust1, Scanner scan, CoffeeItem item1, CoffeeItem item2, CoffeeItem item3, CoffeeItem item4, CoffeeItem item5, CoffeeItem item6){
         //customer is alex checkout
         //for each item in the cart, add points based on total price over 10
 
@@ -27,13 +27,13 @@ public class Checkout {
             do{
                 System.out.println("You currently have: " + cust1.getPoints() + " points");
                 System.out.println("What would you like to spend points on?");
-                System.out.println(item1.getItemName() + " for " + item1.getPointCost());
-                System.out.println(item2.getItemName() + " for " + item2.getPointCost());
-                System.out.println(item3.getItemName() + " for " + item3.getPointCost());
-                System.out.println(item4.getItemName() + " for " + item4.getPointCost());
-                System.out.println(item5.getItemName() + " for " + item5.getPointCost());
-                System.out.println(item6.getItemName() + " for " + item6.getPointCost());
-                System.out.println("7) I'm done spending points.");
+                System.out.println("1). " + item1.getItemName() + " for " + item1.getPointCost());
+                System.out.println("2). " + item2.getItemName() + " for " + item2.getPointCost());
+                System.out.println("3). " + item3.getItemName() + " for " + item3.getPointCost());
+                System.out.println("4). " + item4.getItemName() + " for " + item4.getPointCost());
+                System.out.println("5). " + item5.getItemName() + " for " + item5.getPointCost());
+                System.out.println("6). " + item6.getItemName() + " for " + item6.getPointCost());
+                System.out.println("7). I'm done spending points.");
                 String selection = scan.next();
 
 
@@ -46,7 +46,7 @@ public class Checkout {
                             //spend points on item and subtract points spent
                             System.out.println("Congratulations! You got " + item1.getItemName() + " for " + item1.getPointCost() + " points");
                             //subtract points
-                            cust1.reducePoints(item1.getPointCost());
+                            cust1.reducePoints(cust1.getPoints(), item1.getPointCost());
                         }else{
                             System.out.println("We're sorry, you do not have enough points to purchase this item.");
                         }
@@ -56,7 +56,7 @@ public class Checkout {
                             //spend points on item and subtract points spent
                             System.out.println("Congratulations! You got " + item2.getItemName() + " for " + item2.getPointCost() + " points");
                             //subtract points
-                            cust1.reducePoints(item2.getPointCost());
+                            cust1.reducePoints(cust1.getPoints(), item2.getPointCost());
                         }else{
                             System.out.println("We're sorry, you do not have enough points to purchase this item.");
                         }
@@ -66,7 +66,7 @@ public class Checkout {
                             //spend points on item and subtract points spent
                             System.out.println("Congratulations! You got " + item3.getItemName() + " for " + item3.getPointCost() + " points");
                             //subtract points
-                            cust1.reducePoints(item3.getPointCost());
+                            cust1.reducePoints(cust1.getPoints(), item3.getPointCost());
                         }else{
                             System.out.println("We're sorry, you do not have enough points to purchase this item.");
                         }
@@ -76,7 +76,7 @@ public class Checkout {
                             //spend points on item and subtract points spent
                             System.out.println("Congratulations! You got " + item4.getItemName() + " for " + item4.getPointCost() + " points");
                             //subtract points
-                            cust1.reducePoints(item4.getPointCost());
+                            cust1.reducePoints(cust1.getPoints(), item4.getPointCost());
                         }else{
                             System.out.println("We're sorry, you do not have enough points to purchase this item.");
                         }
@@ -86,7 +86,7 @@ public class Checkout {
                             //spend points on item and subtract points spent
                             System.out.println("Congratulations! You got " + item5.getItemName() + " for " + item5.getPointCost() + " points");
                             //subtract points
-                            cust1.reducePoints(item5.getPointCost());
+                            cust1.reducePoints(cust1.getPoints(), item5.getPointCost());
                         }else{
                             System.out.println("We're sorry, you do not have enough points to purchase this item.");
                         }
@@ -96,7 +96,7 @@ public class Checkout {
                             //spend points on item and subtract points spent
                             System.out.println("Congratulations! You got " + item6.getItemName() + " for " + item6.getPointCost() + " points");
                             //subtract points
-                            cust1.reducePoints(item6.getPointCost());
+                            cust1.reducePoints(cust1.getPoints(), item6.getPointCost());
                         }else{
                             System.out.println("We're sorry, you do not have enough points to purchase this item.");
                         }
@@ -116,27 +116,18 @@ public class Checkout {
             //if they have enough, subtract
             //if not, tell them they don't have enough
 
-            cust1.setTier();
+            cust1.setTier(cust1.getPoints());
 
-            System.out.println("Customer name: " + cust1.getName() + "Customer tier: " + cust1.getTier() + "Customer points: " + cust1.getPoints());
+            System.out.println("Customer name: " + cust1.getName() + " Customer tier: " + cust1.getTier() + " Customer points: " + cust1.getPoints());
 
 
         }else{
             //print final output
-            cust1.setTier();
+            cust1.setTier(cust1.getPoints());
 
             System.out.println("Customer name: " + cust1.getName() + "Customer tier: " + cust1.getTier() + "Customer points: " + cust1.getPoints());
 
         }
 
-        System.out.println("Would you like to buy more product? (y/n)");
-        String check2 = scan.next();
-
-        if (check2.equals("y")){
-            return true;
-        }else{
-            System.out.println("Thank you for your business, have a nice day!");//exit program thank user and tell them to have a nice day
-            return false;
-        }
     }
 }

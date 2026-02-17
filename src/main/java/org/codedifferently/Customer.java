@@ -9,8 +9,8 @@ public class Customer {
     private String name;
     private String phoneNumber;
     private int points;
-    private List<Purchase> myCart = new ArrayList<>();
-    private String tier;
+    private List<CoffeeItem> myCart = new ArrayList<>();
+    private String tier = "No Tier";
 
     public Customer (){
         this.name = "Bob";
@@ -48,17 +48,17 @@ public class Customer {
         this.points = points;
     }
 
-    public void addToCart(Purchase item){
+    public void addToCart(CoffeeItem item){
         this.myCart.add(item);
     }
 
-    public List<Purchase> getMyCart() {
+    public List<CoffeeItem> getMyCart() {
         return myCart;
     }
 
-    public double getCost(List<Purchase> carts){
+    public double getCost(List<CoffeeItem> carts){
         double total = 0;
-        for (Purchase cart : carts) {
+        for (CoffeeItem cart : carts) {
 
             total = total + cart.getPrice();
 
@@ -66,23 +66,23 @@ public class Customer {
         return total;
     }
 
-    public double getMyPoints(List<Purchase> cart){
+    public double getMyPoints(List<CoffeeItem> cart){
         double totalCost = getCost(cart);
         double myPoints = totalCost/10;
         this.points = (int) myPoints;
         return myPoints;
     }
 
-    public void reducePoints(int points){
-        this.points = (this.points - points);
+    public void reducePoints(int startPoints, int spentPoints){
+        this.points = (startPoints - spentPoints);
     }
 
-    public void setTier(){
-        if(this.getPoints() >= 1000){
+    public void setTier(int points){
+        if(points >= 10){
             this.tier = "Gold";
-        }else if (this.getPoints() >= 500){
+        }else if (points >= 5){
             this.tier = "Silver";
-        }else if (this.getPoints() >= 100){
+        }else if (points >= 1){
             this.tier = "Bronze";
 
         }
