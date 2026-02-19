@@ -39,8 +39,12 @@ public class Main {
         //
 
         while (isRunning) {
-            System.out.println("Hello and welcome to triple C's!");
-            System.out.println("What is your name?");
+            System.out.println("==================================");
+            System.out.println("      ☕ Welcome to Triple C's ☕");
+            System.out.println("==================================");
+            System.out.println("Brewing happiness, one cup at a time.");
+            System.out.println("--------------------------------------");
+            System.out.println("What is your name?\n");
             String custName = scan.next();
 
 
@@ -58,9 +62,10 @@ public class Main {
             } //otherwise new customer
             else {
                 //create new customer
-                System.out.println("What is your phone number?");
+                System.out.println("\n☕ First time at Triple C's? We love new faces!");
+                System.out.println("Let’s get you in the system.");
+                System.out.print("📱 Enter your phone number: ");
                 String phoneNumber = scan.next();
-
                 cust1 = new Customer(custName, phoneNumber, 0);
                 //add customer to our array list
                 myCustomers.add(cust1);
@@ -68,17 +73,22 @@ public class Main {
             }
 
             //menu
-            System.out.println("We are currently offering:");
-            System.out.println("1)." + item1.getItemName() + " for $" + item1.getPrice());
-            System.out.println("2)." + item2.getItemName() + " for $" + item2.getPrice());
-            System.out.println("3)." + item3.getItemName() + " for $" + item3.getPrice());
-            System.out.println("4)." + item4.getItemName() + " for $" + item4.getPrice());
-            System.out.println("5)." + item5.getItemName() + " for $" + item5.getPrice());
-            System.out.println("6)." + item6.getItemName() + " for $" + item6.getPrice());
+            System.out.println("\n======================================");
+            System.out.println("          ☕ TRIPLE C'S MENU ☕");
+            System.out.println("======================================");
 
-            System.out.println("If you are ready to checkout, please enter 7");
+            System.out.printf(" 1) %-20s $%5.2f%n", item1.getItemName(), item1.getPrice());
+            System.out.printf(" 2) %-20s $%5.2f%n", item2.getItemName(), item2.getPrice());
+            System.out.printf(" 3) %-20s $%5.2f%n", item3.getItemName(), item3.getPrice());
+            System.out.printf(" 4) %-20s $%5.2f%n", item4.getItemName(), item4.getPrice());
+            System.out.printf(" 5) %-20s $%5.2f%n", item5.getItemName(), item5.getPrice());
+            System.out.printf(" 6) %-20s $%5.2f%n", item6.getItemName(), item6.getPrice());
 
-            System.out.println("What would you like to purchase?");
+            System.out.println("--------------------------------------");
+            System.out.println(" 7) Proceed to Checkout and Redeem Points 🛒");
+            System.out.println("======================================");
+
+            System.out.print("👉 What would you like to order? ");
 
             do{
                 String userInput = scan.next();
@@ -86,40 +96,46 @@ public class Main {
                     case "1":
                         //CoffeeItem Latte
                         cust1.addToCart(item1);
-                        System.out.println("You added a Latte to your cart");
-                        System.out.println("Would you like to add anything else? (7 to checkout)");
+                        System.out.println("\n✅ Latte added to your cart!");
+                        System.out.println("--------------------------------------");
+                        System.out.print("➕ Add another item or press 7 to checkout: ");
 
                         break;
                     case "2":
                         //CoffeeItem Cold Brew
                         cust1.addToCart(item2);
-                        System.out.println("You added a Cold Brew to your cart");
-                        System.out.println("Would you like to add anything else? (7 to checkout)");
+                        System.out.println("\n✅ Cold Brew added to your cart!");
+                        System.out.println("--------------------------------------");
+                        System.out.print("➕ Add another item or press 7 to checkout: ");
                         break;
                     case "3":
 
                         cust1.addToCart(item3);
-                        System.out.println("You added a Hot Chocolate to your cart");
-                        System.out.println("Would you like to add anything else? (7 to checkout)");
+                        System.out.println("\n✅ Hot Chocolate added to your cart!");
+                        System.out.println("--------------------------------------");
+                        System.out.print("➕ Add another item or press 7 to checkout: ");
                         break;
                     case "4":
                         //CoffeeItem Cappucino
                         cust1.addToCart(item4);
-                        System.out.println("You added a Cappucino to your cart");
-                        System.out.println("Would you like to add anything else? (7 to checkout)");
+                        System.out.println("\n✅ Cappucino added to your cart!");
+                        System.out.println("--------------------------------------");
+                        System.out.print("➕ Add another item or press 7 to checkout: ");
                         break;
                     case "5":
                         //CoffeeItem Mocha
 
                         cust1.addToCart(item5);
-                        System.out.println("You added a Mocha to your cart");
-                        System.out.println("Would you like to add anything else? (7 to checkout)");
+                        System.out.println("\n✅ Mocha added to your cart!");
+                        System.out.println("--------------------------------------");
+                        System.out.print("➕ Add another item or press 7 to checkout: ");
                         break;
                     case "6":
                         //CoffeeItem Egg Roll
                         cust1.addToCart(item6);
-                        System.out.println("You added an Egg Roll to your cart");
-                        System.out.println("Would you like to add anything else? (7 to checkout)");
+                        System.out.println("\n✅ Egg Roll added to your cart!");
+                        System.out.println("--------------------------------------");
+                        System.out.print("➕ Add another item or press 7 to checkout: ");
 
                     case "7":
                         //checkout
@@ -129,12 +145,12 @@ public class Main {
                         break;
 
                     default:
-                        System.out.println("PLEASE ENTER A VALID INPUT");
-
+                        System.out.println("\n☕ Oops! That’s not on the menu.");
+                        System.out.print("Please select a valid option: ");
                 }
             }while(isRunning2);
 
-            System.out.println("Is the store closing (y/n)");
+            System.out.print("\n🕒 Is the store closing for the day? (y/n): ");
             String userInput = scan.next();
             if (userInput.equalsIgnoreCase("y")){
                 isRunning = false;

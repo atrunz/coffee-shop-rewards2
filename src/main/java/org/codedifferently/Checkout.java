@@ -17,23 +17,34 @@ public class Checkout {
         //
 
         cust1.getMyPoints(cust1.getMyCart());
-        System.out.println("You have: " + cust1.getPoints() + " points");
-        System.out.println("Would you like to redeem some points (y/n)");
+        System.out.println("\n========================================");
+        System.out.printf(" ⭐ Loyalty Points Balance: %d ⭐%n", cust1.getPoints());
+        System.out.println("========================================");
+        System.out.print("Redeem points for rewards? (y/n): ");
         //check yes or no
         String check = scan.next();
 
         if (check.equals("y")){
             boolean isPointShopping = true;
             do{
-                System.out.println("You currently have: " + cust1.getPoints() + " points");
-                System.out.println("What would you like to spend points on?");
-                System.out.println("1). " + item1.getItemName() + " for " + item1.getPointCost() + " points");
-                System.out.println("2). " + item2.getItemName() + " for " + item2.getPointCost() + " points");
-                System.out.println("3). " + item3.getItemName() + " for " + item3.getPointCost() + " points");
-                System.out.println("4). " + item4.getItemName() + " for " + item4.getPointCost() + " points");
-                System.out.println("5). " + item5.getItemName() + " for " + item5.getPointCost() + " points");
-                System.out.println("6). " + item6.getItemName() + " for " + item6.getPointCost() + " points");
-                System.out.println("7). I'm done spending points.");
+                System.out.println("\n========================================");
+                System.out.println("        ⭐ TRIPLE C'S REWARDS ⭐");
+                System.out.println("========================================");
+
+                System.out.printf(" 🎯 Current Points Balance: %d%n%n", cust1.getPoints());
+
+                System.out.printf(" 1) %-22s %6d pts%n", item1.getItemName(), item1.getPointCost());
+                System.out.printf(" 2) %-22s %6d pts%n", item2.getItemName(), item2.getPointCost());
+                System.out.printf(" 3) %-22s %6d pts%n", item3.getItemName(), item3.getPointCost());
+                System.out.printf(" 4) %-22s %6d pts%n", item4.getItemName(), item4.getPointCost());
+                System.out.printf(" 5) %-22s %6d pts%n", item5.getItemName(), item5.getPointCost());
+                System.out.printf(" 6) %-22s %6d pts%n", item6.getItemName(), item6.getPointCost());
+
+                System.out.println("----------------------------------------");
+                System.out.println(" 7) Finish Redeeming");
+                System.out.println("========================================");
+
+                System.out.print("👉 Select a reward: ");
                 String selection = scan.next();
 
 
@@ -44,61 +55,72 @@ public class Checkout {
                         //else say they don't have enough for this item
                         if(cust1.getPoints() > item1.getPointCost()){
                             //spend points on item and subtract points spent
-                            System.out.println("Congratulations! You got " + item1.getItemName() + " for " + item1.getPointCost() + " points");
-                            //subtract points
+                            System.out.printf("\n🎉 Congratulations! You redeemed %s for %d points.%n",
+                                    item1.getItemName(),
+                                    item1.getPointCost());                            //subtract points
                             cust1.reducePoints(cust1.getPoints(), item1.getPointCost());
                         }else{
-                            System.out.println("We're sorry, you do not have enough points to purchase this item.");
-                        }
+                            System.out.println("\n⚠ We're sorry, you don't have enough points for that reward.");
+                            System.out.print("Earn more points or choose another option: ");                        }
                         break;
                     case "2":
                         if(cust1.getPoints() > item2.getPointCost()){
                             //spend points on item and subtract points spent
-                            System.out.println("Congratulations! You got " + item2.getItemName() + " for " + item2.getPointCost() + " points");
-                            //subtract points
+                            System.out.printf("\n🎉 Congratulations! You redeemed %s for %d points.%n",
+                                    item2.getItemName(),
+                                    item2.getPointCost());                             //subtract points
                             cust1.reducePoints(cust1.getPoints(), item2.getPointCost());
                         }else{
-                            System.out.println("We're sorry, you do not have enough points to purchase this item.");
+                            System.out.println("\n⚠ We're sorry, you don't have enough points for that reward.");
+                            System.out.print("Earn more points or choose another option: ");
                         }
                         break;
                     case "3":
                         if(cust1.getPoints() > item3.getPointCost()){
                             //spend points on item and subtract points spent
-                            System.out.println("Congratulations! You got " + item3.getItemName() + " for " + item3.getPointCost() + " points");
-                            //subtract points
+                            System.out.printf("\n🎉 Congratulations! You redeemed %s for %d points.%n",
+                                    item3.getItemName(),
+                                    item3.getPointCost());                                 //subtract points
                             cust1.reducePoints(cust1.getPoints(), item3.getPointCost());
                         }else{
-                            System.out.println("We're sorry, you do not have enough points to purchase this item.");
+                            System.out.println("\n⚠ We're sorry, you don't have enough points for that reward.");
+                            System.out.print("Earn more points or choose another option: ");
                         }
                         break;
                     case "4":
                         if(cust1.getPoints() > item4.getPointCost()){
                             //spend points on item and subtract points spent
-                            System.out.println("Congratulations! You got " + item4.getItemName() + " for " + item4.getPointCost() + " points");
-                            //subtract points
+                            System.out.printf("\n🎉 Congratulations! You redeemed %s for %d points.%n",
+                                    item4.getItemName(),
+                                    item4.getPointCost());                                 //subtract points
                             cust1.reducePoints(cust1.getPoints(), item4.getPointCost());
                         }else{
-                            System.out.println("We're sorry, you do not have enough points to purchase this item.");
+                            System.out.println("\n⚠ We're sorry, you don't have enough points for that reward.");
+                            System.out.print("Earn more points or choose another option: ");
                         }
                         break;
                     case "5":
                         if(cust1.getPoints() > item5.getPointCost()){
                             //spend points on item and subtract points spent
-                            System.out.println("Congratulations! You got " + item5.getItemName() + " for " + item5.getPointCost() + " points");
-                            //subtract points
+                            System.out.printf("\n🎉 Congratulations! You redeemed %s for %d points.%n",
+                                    item5.getItemName(),
+                                    item5.getPointCost());                                 //subtract points
                             cust1.reducePoints(cust1.getPoints(), item5.getPointCost());
                         }else{
-                            System.out.println("We're sorry, you do not have enough points to purchase this item.");
+                            System.out.println("\n⚠ We're sorry, you don't have enough points for that reward.");
+                            System.out.print("Earn more points or choose another option: ");
                         }
                         break;
                     case "6":
                         if(cust1.getPoints() > item6.getPointCost()){
                             //spend points on item and subtract points spent
-                            System.out.println("Congratulations! You got " + item6.getItemName() + " for " + item6.getPointCost() + " points");
-                            //subtract points
+                            System.out.printf("\n🎉 Congratulations! You redeemed %s for %d points.%n",
+                                    item6.getItemName(),
+                                    item6.getPointCost());                                 //subtract points
                             cust1.reducePoints(cust1.getPoints(), item6.getPointCost());
                         }else{
-                            System.out.println("We're sorry, you do not have enough points to purchase this item.");
+                            System.out.println("\n⚠ We're sorry, you don't have enough points for that reward.");
+                            System.out.print("Earn more points or choose another option: ");
                         }
                         break;
                     case "7":
@@ -106,8 +128,8 @@ public class Checkout {
                         isPointShopping = false;
                         break;
                     default:
-                        System.out.println("Please pick a valid choice");
-                }
+                        System.out.println("\n☕ That option isn’t on the menu.");
+                        System.out.print("Try selecting one of the listed numbers (1-7): ");                }
                 //menu items and point prices
             }while(isPointShopping);
 
@@ -118,15 +140,19 @@ public class Checkout {
 
             cust1.setTier(cust1.getPoints());
 
-            System.out.println("Customer name: " + cust1.getName() + " Customer tier: " + cust1.getTier() + " Customer points: " + cust1.getPoints());
-
+            System.out.printf("\n👤 Customer: %s | 🏅 Tier: %s | 🎯 Points: %d%n%n",
+                    cust1.getName(),
+                    cust1.getTier(),
+                    cust1.getPoints());
 
         }else{
             //print final output
             cust1.setTier(cust1.getPoints());
 
-            System.out.println("Customer name: " + cust1.getName() + " Customer tier: " + cust1.getTier() + " Customer points: " + cust1.getPoints());
-
+            System.out.printf("\n👤 Customer: %s | 🏅 Tier: %s | 🎯 Points: %d%n%n",
+                    cust1.getName(),
+                    cust1.getTier(),
+                    cust1.getPoints());
         }
 
     }
