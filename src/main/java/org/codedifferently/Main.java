@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+//when i check the cart size, if total cost is over 20 give a bonus point
 public class Main {
     public static void main(String[] args) {
 
@@ -65,7 +66,20 @@ public class Main {
                 System.out.println("\n☕ First time at Triple C's? We love new faces!");
                 System.out.println("Let’s get you in the system.");
                 System.out.print("📱 Enter your phone number: ");
-                String phoneNumber = scan.next();
+
+                String phoneNumber;
+
+                while (true) {
+                    System.out.print("Enter phone number (xxx-xxx-xxxx): ");
+                    phoneNumber = scan.next();
+
+                    if (phoneNumber.matches("\\d{3}-\\d{3}-\\d{4}")) {
+                        break; // valid format, exit loop
+                    } else {
+                        System.out.println("Invalid format. Please use xxx-xxx-xxxx.");
+                    }
+                }
+
                 cust1 = new Customer(custName, phoneNumber, 0);
                 //add customer to our array list
                 myCustomers.add(cust1);
@@ -147,16 +161,24 @@ public class Main {
                     default:
                         System.out.println("\n☕ Oops! That’s not on the menu.");
                         System.out.print("Please select a valid option: ");
+                        break;
                 }
             }while(isRunning2);
 
+            boolean isInvalidInput = true;
+            while(isInvalidInput){
             System.out.print("\n🕒 Is the store closing for the day? (y/n): ");
             String userInput = scan.next();
             if (userInput.equalsIgnoreCase("y")){
                 isRunning = false;
-            }else{
+                isInvalidInput = false;
+            }else if (userInput.equalsIgnoreCase("n")){
                 //keep running so we reset our other loop condition
                 isRunning2 = true;
+                isInvalidInput = false;
+            }else{
+                System.out.println("Please enter y or n");
+            }
             }
 
 

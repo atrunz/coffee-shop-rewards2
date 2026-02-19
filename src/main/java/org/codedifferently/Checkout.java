@@ -20,9 +20,21 @@ public class Checkout {
         System.out.println("\n========================================");
         System.out.printf(" ⭐ Loyalty Points Balance: %d ⭐%n", cust1.getPoints());
         System.out.println("========================================");
-        System.out.print("Redeem points for rewards? (y/n): ");
-        //check yes or no
-        String check = scan.next();
+
+        boolean isInvalid = true;
+        String check = "";
+        while (isInvalid) {
+            System.out.print("Redeem points for rewards? (y/n): ");
+            check = scan.next();
+
+            if (check.equalsIgnoreCase("y")){
+                isInvalid = false;
+            }else if (check.equalsIgnoreCase("n")){
+                isInvalid = false;
+            }else{
+                System.out.println("Please enter a valid input! (y/n)");
+            }
+        }
 
         if (check.equals("y")){
             boolean isPointShopping = true;
@@ -129,7 +141,9 @@ public class Checkout {
                         break;
                     default:
                         System.out.println("\n☕ That option isn’t on the menu.");
-                        System.out.print("Try selecting one of the listed numbers (1-7): ");                }
+                        System.out.print("Try selecting one of the listed numbers (1-7): ");
+                        break;
+                }
                 //menu items and point prices
             }while(isPointShopping);
 

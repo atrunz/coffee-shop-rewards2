@@ -5,8 +5,20 @@ import java.util.Scanner;
 public class BuyAgain {
 //if I want this loop to run, I have to figure out why points aren't getting update properly
     public static boolean buyagain(Customer cust1, Scanner scan, CoffeeItem item1, CoffeeItem item2, CoffeeItem item3, CoffeeItem item4, CoffeeItem item5, CoffeeItem item6) {
-        System.out.print("\n🛒 Would you like to order anything else? (y/n): ");
-        String check2 = scan.next();
+        boolean isInvalid = true;
+        String check2 = "";
+        while (isInvalid) {
+            System.out.print("\n🛒 Would you like to order anything else? (y/n): ");
+            check2 = scan.next();
+
+            if (check2.equalsIgnoreCase("y")){
+                isInvalid = false;
+            }else if (check2.equalsIgnoreCase("n")){
+                isInvalid = false;
+            }else{
+                System.out.println("Please enter a valid input! (y/n)");
+            }
+        }
 
         if (check2.equals("y")) {
             System.out.println("\n========================================");
