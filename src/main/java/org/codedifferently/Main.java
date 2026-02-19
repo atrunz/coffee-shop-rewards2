@@ -43,7 +43,7 @@ public class Main {
             System.out.println("==================================");
             System.out.println("      ☕ Welcome to Triple C's ☕");
             System.out.println("==================================");
-            System.out.println("Brewing happiness, one cup at a time.");
+            System.out.println("Brewing addictions, one cup at a time.");
             System.out.println("--------------------------------------");
             System.out.println("What is your name?\n");
             String custName = scan.next();
@@ -150,6 +150,7 @@ public class Main {
                         System.out.println("\n✅ Egg Roll added to your cart!");
                         System.out.println("--------------------------------------");
                         System.out.print("➕ Add another item or press 7 to checkout: ");
+                        break;
 
                     case "7":
                         //checkout

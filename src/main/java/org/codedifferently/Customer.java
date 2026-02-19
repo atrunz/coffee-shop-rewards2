@@ -28,6 +28,8 @@ public class Customer {
         return points;
     }
 
+    public void incrementPoints() { this.points += 1;}
+
     public String getName() {
         return name;
     }
@@ -68,12 +70,12 @@ public class Customer {
         return total;
     }
 
-    public double getMyPoints(List<CoffeeItem> cart){
+
+    public void setMyPoints(List<CoffeeItem> cart){
         double totalCost = getCost(cart);
         double myPoints = totalCost/10;
         this.points = this.points + (int) myPoints;
         this.myCart.clear();
-        return myPoints;
     }
 
     public void reducePoints(int startPoints, int spentPoints){

@@ -16,7 +16,14 @@ public class Checkout {
 
         //
 
-        cust1.getMyPoints(cust1.getMyCart());
+
+        if (cust1.getCost(cust1.getMyCart()) >= 20){
+            System.out.println("Congratulations! You earned 1 bonus point for spending over $20");
+            cust1.setMyPoints(cust1.getMyCart());
+            cust1.incrementPoints();
+        }else{
+            cust1.setMyPoints(cust1.getMyCart());
+        }
         System.out.println("\n========================================");
         System.out.printf(" ⭐ Loyalty Points Balance: %d ⭐%n", cust1.getPoints());
         System.out.println("========================================");
